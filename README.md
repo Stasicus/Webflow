@@ -51,7 +51,7 @@ Copy this inside the `<body>` of a page or website:
 
 
 ## JavaScript
-```javascript
+```html
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
