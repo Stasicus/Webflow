@@ -7,11 +7,17 @@ Made in Webflow:
 and  
 [Vanilla LazyLoad](https://github.com/verlok/vanilla-lazyload)  
 
+
+## Need help with video optimization on Webflow Email me?
+### Upwork https://www.upwork.com/freelancers/stasicus
+### Instagram  https://instagram.com/stasicusen
+### Telegram @stasicusucs
+
 ## 🛠 Installation  
 Copy this inside the `<body>` of a page or website:  
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script> ```
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script> 
 
 
 ## HTML structure Vimeo:
@@ -31,8 +37,7 @@ Copy this inside the `<body>` of a page or website:
     </div>
 </div>
 
-HTML structure YouTube 
-<!-- the same, needs change only class for <iframe> class="youtubePlayer" -->
+## HTML structure YouTube // The same, only needs to change <iframe> class="youtubePlayer" 
 <div class='video-wrap'>
     <div class='video-play'>
     </div>
@@ -46,11 +51,11 @@ HTML structure YouTube
         allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
     </div>
-</div>```
+</div>
+
 
 
 ## JavaScript
-```html
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -75,10 +80,7 @@ HTML structure YouTube
         });
     }
 });
-</script>```
+</script>
 
 
-## Need help with video optimization on Webflow Email me?
-### Upwork https://www.upwork.com/freelancers/stasicus
-### Instagram  https://instagram.com/stasicusen
-### Telegram @stasicusucs
+
