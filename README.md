@@ -11,7 +11,7 @@ and
 Copy this inside the `<body>` of a page or website:  
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script> ```
 
 
 ## HTML structure Vimeo:
@@ -31,9 +31,7 @@ Copy this inside the `<body>` of a page or website:
     </div>
 </div>
 
-## HTML structure YouTube 
-
-```html
+HTML structure YouTube 
 <!-- the same, needs change only class for <iframe> class="youtubePlayer" -->
 <div class='video-wrap'>
     <div class='video-play'>
@@ -48,11 +46,11 @@ Copy this inside the `<body>` of a page or website:
         allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
     </div>
-</div>
+</div>```
 
 
 ## JavaScript
-```javaScript
+```html
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -77,7 +75,7 @@ Copy this inside the `<body>` of a page or website:
         });
     }
 });
-</script>
+</script>```
 
 
 ## Need help with video optimization on Webflow Email me?
