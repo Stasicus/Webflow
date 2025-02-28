@@ -51,7 +51,7 @@ Copy this inside the `<body>` of a page or website:
 
 
 ## JavaScript
-```js
+```javascript
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -81,9 +81,6 @@ Copy this inside the `<body>` of a page or website:
 
 # Needs help? Contact me! 
 And I will help you with video optimization on Webflow 💌
-### Upwork https://www.upwork.com/freelancers/stasicus
-### Instagram  https://instagram.com/stasicusen
-### Telegram @stasicusucs
-
-
-
+### Upwork: https://www.upwork.com/freelancers/stasicus
+### Instagram:  https://instagram.com/stasicusen
+### Telegram: @stasicusucs
