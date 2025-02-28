@@ -30,7 +30,8 @@ Copy this inside the `<body>` of a page or website:
 </div>
 ```
 
-## HTML structure YouTube // The same, only needs to change <iframe> class="youtubePlayer" 
+## HTML structure YouTube 
+The same, only needs to change class="youtubePlayer"for <iframe> 
 ```html
 <div class='video-wrap'>
     <div class='video-play'>
