@@ -1,17 +1,21 @@
 # Lazy Load Video on Webflow 🚀  
-**Code for Lazy video loading on Webflow. To load video only after clicking on an element with video-play class inside video-wrap**  
+**Code for lazy video loading on Webflow. To load a video only after clicking on an element with the `video-play` class inside `video-wrap`.**  
 
 ## 📌 Based on  
-Made in Webflow https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video
-and 
-https://github.com/verlok/vanilla-lazyload
+Made in Webflow:  
+[Lazy Load Videos](https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video)  
+and  
+[Vanilla LazyLoad](https://github.com/verlok/vanilla-lazyload)  
 
-## 🛠 Installation
-Copy it in Body of a page or a web-site:
+## 🛠 Installation  
+Copy this inside the `<body>` of a page or website:  
+
+```html
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
 
 
 ## HTML structure Vimeo:
+```html
 <div class='video-wrap'>
     <div class='video-play'>
     </div>
@@ -28,6 +32,8 @@ Copy it in Body of a page or a web-site:
 </div>
 
 ## HTML structure YouTube 
+
+```html
 <!-- the same, needs change only class for <iframe> class="youtubePlayer" -->
 <div class='video-wrap'>
     <div class='video-play'>
@@ -46,6 +52,7 @@ Copy it in Body of a page or a web-site:
 
 
 ## JavaScript
+```javaScript
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -57,14 +64,14 @@ Copy it in Body of a page or a web-site:
             if (vimeoIframe) {
                 const videoId = vimeoIframe.getAttribute('data-video-id');
                 if (videoId) {
-                    vimeoIframe.src = https://player.vimeo.com/video/${videoId}?color=1c50c7&autoplay=1; // Запускаем Vimeo
+                    vimeoIframe.src = https://player.vimeo.com/video/${videoId}?color=1c50c7&autoplay=1; // Launch Vimeo
                 }
             }
 
             if (youtubeIframe) {
-                const videoId = youtubeIframe.getAttribute('data-video-id'); // Берём ID
+                const videoId = youtubeIframe.getAttribute('data-video-id'); // Take ID
                 if (videoId) {
-                    youtubeIframe.src = https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0; // Запускаем YouTube
+                    youtubeIframe.src = https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0; // Launch YouTube
                 }
             }
         });
@@ -73,7 +80,7 @@ Copy it in Body of a page or a web-site:
 </script>
 
 
-### Need help with video optimization on Webflow Email me?
-Upwork https://www.upwork.com/freelancers/stasicus
-Instagram  https://instagram.com/stasicusen
-Telegram @stasicusucs
+## Need help with video optimization on Webflow Email me?
+### Upwork https://www.upwork.com/freelancers/stasicus
+### Instagram  https://instagram.com/stasicusen
+### Telegram @stasicusucs
