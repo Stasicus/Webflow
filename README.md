@@ -8,34 +8,32 @@ and
 [Vanilla LazyLoad](https://github.com/verlok/vanilla-lazyload)  
 
 
-## Need help with video optimization on Webflow Email me?
-### Upwork https://www.upwork.com/freelancers/stasicus
-### Instagram  https://instagram.com/stasicusen
-### Telegram @stasicusucs
+# Needs help with video optimization on Webflow Email me? 💌
+#### Upwork https://www.upwork.com/freelancers/stasicus
+#### Instagram  https://instagram.com/stasicusen
+#### Telegram @stasicusucs
 
 ## 🛠 Installation  
 Copy this inside the `<body>` of a page or website:  
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script> 
-
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
 
 ## HTML structure Vimeo:
 ```html
 <div class='video-wrap'>
-    <div class='video-play'>
-    </div>
-    <div class='video-play'>
+    <div class='video-play'></div>
     <div class='video-el-embed'>
         <iframe class="vimeoPlayer" 
-        data-video-id="985638605" 
-        width="100%" 
-        height="100%" 
-        frameborder="0"
-        allow="autoplay; fullscreen" allowfullscreen>
+            data-video-id="985638605" 
+            width="100%" 
+            height="100%" 
+            frameborder="0"
+            allow="autoplay; fullscreen" allowfullscreen>
         </iframe>
     </div>
 </div>
+
 
 ## HTML structure YouTube // The same, only needs to change <iframe> class="youtubePlayer" 
 <div class='video-wrap'>
