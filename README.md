@@ -2,17 +2,16 @@
 **Code for Lazy video loading on Webflow. To load video only after clicking on an element with video-play class inside video-wrap**  
 
 ## 📌 Based on  
-Based on https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video
+Made in Webflow https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video
 and 
 https://github.com/verlok/vanilla-lazyload
 
 ## 🛠 Installation
-1. Copy it in Body of a page or a web-site:
+Copy it in Body of a page or a web-site:
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
 
 
-2. HTML structure:
-— Vimeo
+## HTML structure Vimeo:
 <div class='video-wrap'>
     <div class='video-play'>
     </div>
@@ -28,7 +27,8 @@ https://github.com/verlok/vanilla-lazyload
     </div>
 </div>
 
-— YouTube
+## HTML structure YouTube 
+<!-- the same, needs change only class for <iframe> class="youtubePlayer" -->
 <div class='video-wrap'>
     <div class='video-play'>
     </div>
@@ -45,7 +45,7 @@ https://github.com/verlok/vanilla-lazyload
 </div>
 
 
-3. JavaScript
+## JavaScript
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -72,3 +72,8 @@ https://github.com/verlok/vanilla-lazyload
 });
 </script>
 
+
+### Need help with video optimization on Webflow Email me?
+Upwork https://www.upwork.com/freelancers/stasicus
+Instagram  https://instagram.com/stasicusen
+Telegram @stasicusucs
