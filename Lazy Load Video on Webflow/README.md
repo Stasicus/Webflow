@@ -120,4 +120,4 @@ iframe {
 And I will help you with video optimization on Webflow 💌
 ### Upwork: https://www.upwork.com/freelancers/stasicus
 ### Instagram:  https://instagram.com/stasicusen
-### Telegram: @stasicusucs
+### Telegram: https://t.me/stasicusucs
