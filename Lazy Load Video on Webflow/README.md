@@ -1,3 +1,7 @@
+# Use in your projects on Webflow 🚀  
+Above in this folder you can find CustomCode solutions for Webflow on different topics and use them in your projects. Just swipe up and select the subfolder 📌
+
+=======
 # Lazy Load Video on Webflow 🚀  
 **Code for lazy video loading on Webflow. To load a video only after clicking on an element with the `video-play` class inside `video-wrap`.**  
 
@@ -115,6 +119,7 @@ iframe {
 });
 </script>
 ```
+>>>>>>> 38f272d (Updated file)
 
 # Needs help? Contact me! 
 And I will help you with video optimization on Webflow 💌
