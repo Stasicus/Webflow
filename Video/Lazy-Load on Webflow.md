@@ -1,4 +1,4 @@
-# Use in your projects on Webflow 🚀 
+# Use for videos from YouTube, Vimeo and other storage on Webflow 🚀
 
 Above in this folder you can find CustomCode solutions for Webflow on different topics and use them in your projects. Just swipe up and select the subfolder 📌
 
