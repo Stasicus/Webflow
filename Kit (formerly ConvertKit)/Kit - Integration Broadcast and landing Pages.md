@@ -3,10 +3,8 @@ Below are solutions using Custom Code and API for integrating Broadcasts and Lan
 
 
 ## 📌 API Documentation
-for integration: 
-[Broadcasts](https://developers.kit.com/api-reference/v3/overview)  
-and  
-[Landing Pages](https://developers.kit.com/api-reference/overview)  
+for integration: [Broadcasts](https://developers.kit.com/api-reference/v3/overview)  
+for integration: [Landing Pages](https://developers.kit.com/api-reference/overview)  
 
 ## HTML structure for Broadcast:
 ```html
@@ -38,12 +36,14 @@ and
 ```
 
 ## HTML structure for Landing Pages 
-The structure is almost the same, only needs:
-— to change class="kit_content" to "kit_content-land", 
-— delete ID from element "kit_list-wrap"; 
-— to change class="kit_loader" to ="kit_loader-land"
-— to change ID for buttons to 'prev-1' and 'next-1'
+The structure is almost the same, only needs to change some clases 
 ```html
+<!-- NEEDS to CHANGE next: 
+ — class="kit_content" to "kit_content-land", 
+ — delete ID from element "kit_list-wrap"; 
+ — to change class="kit_loader" to ="kit_loader-land" 
+ — to change ID for buttons to 'prev-1' and 'next-1'
+ -->
   <div class="container">
     <h1 class="h1">ConvertKit Landing Pages Integration</h1>
     <div class="kit_loader-land">
