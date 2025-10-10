@@ -242,7 +242,7 @@ Copy this inside the `<body>` of a page or a website:
 ```html
 <script>
 /// ========== Broadcasts
-const apiKey = 'YOUR_KIT_API_KEY'; // Personal API Key for v4 
+const apiKey = 'YOUR_API_KEY'; // Personal API Key for v4 
 const url = 'https://api.kit.com/v4/broadcasts'; // URL of API
 
 // Pagination setup
@@ -305,6 +305,9 @@ async function fetchBroadcasts() {
 
     // Parse JSON data from response
     const data = await response.json();
+    
+    // 👉 Show full list of all broadcasts in console
+		console.log('📬 All broadcasts (raw data):', data.broadcasts);
 
     // Filter out non-public broadcasts and sort by creation date (newest first)
     sortedBroadcasts = data.broadcasts
@@ -338,6 +341,7 @@ async function displayBroadcastItems() {
     listItem.classList.add('kit_list-item');
     listItem.style.cursor = 'pointer';
 
+/*
     // Create a URL-friendly slug from the broadcast subject
     const formattedSubject = broadcast.subject
       .toLowerCase()
@@ -348,7 +352,10 @@ async function displayBroadcastItems() {
 
     // Construct the broadcast URL
     const broadcastUrl = `https://stany.kit.com/posts/${formattedSubject}`;
+*/
 
+// Use official public URL from API instead of manual slug
+		const broadcastUrl = broadcast.public_url;
     // Open broadcast page in a new tab when clicked
     listItem.onclick = () => window.open(broadcastUrl, '_blank');
 
