@@ -472,7 +472,7 @@ const coverImages = [
 function showLoaderLand() {
   if (loaderLand) loaderLand.style.display = 'flex';
   if (landingsContainer) {
-    landingsContainer.style.pointerEvents = 'none';   // Disable clicks while loading
+    landingsContainer.style.pointerEvents = 'none'; // Disable clicks while loading
     landingsContainer.classList.remove('is-visible'); // Hide content
   }
 }
@@ -481,8 +481,8 @@ function showLoaderLand() {
 function hideLoaderLand() {
   if (loaderLand) loaderLand.style.display = 'none';
   if (landingsContainer) {
-    landingsContainer.style.pointerEvents = '';        // Re-enable clicks
-    landingsContainer.classList.add('is-visible');     // Show content again
+    landingsContainer.style.pointerEvents = '';  // Re-enable clicks
+    landingsContainer.classList.add('is-visible');  // Show content again
   }
 }
 
@@ -506,7 +506,7 @@ async function fetchLandingPages() {
   const urlLanding = `https://api.convertkit.com/v3/forms?api_secret=${apiSecret}`;
 
   try {
-    // Fetch all forms from ConvertKit
+        // Fetch all forms from ConvertKit
     const response = await fetch(urlLanding);
     if (!response.ok) throw new Error(`Request failed: ${response.status}`);
 
@@ -519,7 +519,9 @@ async function fetchLandingPages() {
       .filter(form => form.type === 'hosted')
       .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-    // If no forms found, show a message and stop
+    // ✅ Show the full list of Landing Pages
+    // console.log('📄 All Landing Pages:', landingPages);
+
     if (!landingPages.length) {
       kitListWrap.innerHTML = '<p>No landing pages found.</p>';
       hideLoaderLand();
@@ -532,7 +534,7 @@ async function fetchLandingPages() {
     hideLoaderLand();
     console.log('✅ Landing pages loaded and shown');
   } catch (error) {
-    // Handle any network or data error
+        // Handle any network or data error
     console.error('Error fetching landing pages:', error);
     kitListWrap.innerHTML = `<p style="color:red;">Error loading landing pages</p>`;
     loaderErrorLand('Failed to load items 😕');
@@ -541,7 +543,6 @@ async function fetchLandingPages() {
 
 
 // ========== Render Landing Page Items ==========
-
 async function displayLandingItems() {
   kitListWrap.innerHTML = ''; // Clear old list content
 
@@ -552,7 +553,7 @@ async function displayLandingItems() {
   // Loop through items and build list elements
   for (let i = 0; i < itemsToShow.length; i++) {
     const page = itemsToShow[i];
-    const imgSrc = coverImages[(currIndexLanding + i) % coverImages.length]; // Cycle through cover images
+    const imgSrc = coverImages[(currIndexLanding + i) % coverImages.length];  // Cycle through cover images
     const dateFormatted = new Date(page.created_at)
 	  .toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 
