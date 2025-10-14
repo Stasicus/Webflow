@@ -307,7 +307,7 @@ async function fetchBroadcasts() {
     const data = await response.json();
     
     // 👉 Show full list of all broadcasts in console
-		console.log('📬 All broadcasts (raw data):', data.broadcasts);
+		// console.log('📬 All broadcasts (raw data):', data.broadcasts);
 
     // Filter out non-public broadcasts and sort by creation date (newest first)
     sortedBroadcasts = data.broadcasts
