@@ -8,7 +8,7 @@ for integration: [Landing Pages](https://developers.kit.com/api-reference/overvi
 
 ## HTML structure for Broadcast:
 ```html
-  <div class="container">
+  <div class="container_kit">
     <h1 class="h1">ConvertKit Broadcasts Integration</h1>
     <div class="kit_loader">
       <div class="spinner"></div>
@@ -44,7 +44,7 @@ The structure is almost the same, only needs to change some clases
  — to change class="kit_loader" to ="kit_loader-land" 
  — to change ID for buttons to 'prev-1' and 'next-1'
  -->
-  <div class="container">
+  <div class="container_kit">
     <h1 class="h1">ConvertKit Landing Pages Integration</h1>
     <div class="kit_loader-land">
       <div class="spinner"></div>
