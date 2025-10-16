@@ -9,7 +9,7 @@ for integration: [Landing Pages](https://developers.kit.com/api-reference/overvi
 ## HTML structure for Broadcast:
 ```html
   <div class="container_kit">
-    <h1 class="h1">ConvertKit Broadcasts Integration</h1>
+    <h1 class="h1">Kit Broadcasts Integration</h1>
     <div class="kit_loader">
       <div class="spinner"></div>
       <div class="loader-text">
@@ -45,7 +45,7 @@ The structure is almost the same, only needs to change some clases
  — to change ID for buttons to 'prev-1' and 'next-1'
  -->
   <div class="container_kit">
-    <h1 class="h1">ConvertKit Landing Pages Integration</h1>
+    <h1 class="h1">Kit Landing Pages Integration</h1>
     <div class="kit_loader-land">
       <div class="spinner"></div>
       <div class="loader-text">
@@ -91,6 +91,7 @@ Add these styles to your elements. You can use unique styles.
   border-color: rgba(0, 0, 0, 0.6) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.12);
   border-radius: 100%;
   animation: 1s linear 0s infinite normal none running spin;
+  border-top-color: rgba(0,0,0,0.6);
 }
 
 .kit_content {
