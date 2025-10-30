@@ -201,7 +201,7 @@ Add these styles to your elements. You can use unique styles.
 </style>
 ```
 
-## CSS which you need to add at the tag 'head' or embed 
+## CSS which you need to add at the tag 'Head' or embed 
 ```html
 <style>
 /* Style for errors */
