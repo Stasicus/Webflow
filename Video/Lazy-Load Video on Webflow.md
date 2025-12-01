@@ -7,10 +7,10 @@ Above in this folder you can find CustomCode solutions for Webflow on different 
 **Code for lazy video loading on Webflow. To load a video only after clicking on an element with the `video-play` class inside `video-wrap`.**  
 
 ## 📌 Based on  
-Made in Webflow:  
-[Lazy Load Videos](https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video)  
-and  
-[Vanilla LazyLoad](https://github.com/verlok/vanilla-lazyload)  
+Webflow clonable:
+[Webflow clonable Link](https://webflow.com/made-in-webflow)  
+[YouTube Tutorial]()
+
 
 ## HTML structure Vimeo:
 ```html
@@ -137,8 +137,6 @@ iframe {
 Copy this inside the `<body>` of a page or website:  
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
-
 <script>
     document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const button = videoWrap.querySelector('.video-play');
@@ -193,6 +191,15 @@ document.querySelectorAll('.video-wrap').forEach(videoWrap => {
 
 </script>
 ```
+
+
+
+## 📌 Based on  
+Made in Webflow:  
+[Lazy Load Videos](https://webflow.com/made-in-webflow/website/lazy-load-videos-f99d06?ref=made-in-webflow-search&searchValue=lazy%20load%20video)  
+and  
+[Vanilla LazyLoad](https://github.com/verlok/vanilla-lazyload)  
+
 
 
 # Needs help? Contact me! 
