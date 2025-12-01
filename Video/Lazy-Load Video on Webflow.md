@@ -6,7 +6,7 @@ Above in this folder you can find CustomCode solutions for Webflow on different 
 # Lazy Load Video on Webflow 🚀  
 **Code for lazy video loading on Webflow. To load a video only after clicking on an element with the `video-play` class inside `video-wrap`.**  
 
-## 📌 Based on  
+## 📌 Sources
 Webflow clonable: [Link](https://webflow.com/made-in-webflow)  
 YouTube Tutorial: [Link](https://www.youtube.com/)
 
