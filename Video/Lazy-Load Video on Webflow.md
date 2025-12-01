@@ -167,6 +167,7 @@ document.querySelectorAll('.video-wrap').forEach(videoWrap => {
     const videoLottie = videoWrap.querySelector('.video-lottie');
     const videoIcon = videoWrap.querySelector('.video-embed-icon');
     const videoPlay = videoWrap.querySelector('.video-play');
+    const videoImgCover = videoWrap.querySelector('.video-img-cover'); 
 
     videoWrap.addEventListener('click', () => {
         if (videoElement) {
@@ -177,6 +178,13 @@ document.querySelectorAll('.video-wrap').forEach(videoWrap => {
         }
         if (videoIcon) {
             videoIcon.style.display = 'none'; // hide play icon
+        }
+
+        // Animation for .video-img-cover
+        if (videoImgCover) {
+            videoImgCover.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            videoImgCover.style.opacity = '0.95';
+            videoImgCover.style.transform = 'scale(0.96)';
         }
 
         // hide .video-play after 20 sec
