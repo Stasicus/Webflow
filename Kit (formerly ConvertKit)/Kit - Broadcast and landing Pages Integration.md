@@ -1,6 +1,7 @@
 # Integration of Broadcasts and Landing Pages from Kit (formerly ConvertKit) into Webflow 🚀
-Below are solutgit checkout codeions using Custom Code and API for integrating Broadcasts and Landing pages from Kit (formerly ConvertKit) 📌
+Here is Custom Code based on API for integrating Broadcasts and Landing pages from Kit (formerly ConvertKit) to Webflow. You can adapt this example for other platforms, such as Wordpress, React, and so on. 📌
 
+## 📌 YouTube Tutorial [Here](https://www.youtube.com/watch?v=Wp0D_eoX3Dc)  
 
 ## 📌 API Documentation
 for integration: [Broadcasts](https://developers.kit.com/api-reference/v3/overview)  
