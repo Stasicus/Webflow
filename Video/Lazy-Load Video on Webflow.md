@@ -3,8 +3,8 @@
 
 **Here you'll find a Webflow solution to increase your page loading speed if you have a lot of videos on it**  
 
-## 📌 Sources
-YouTube Tutorial: [Link](https://www.youtube.com/watch?v=r8FyWWnsa-s&t=2s)
+## 📌 YouTube Tutorial
+Detailed Video Tutorial is [HERE](https://www.youtube.com/watch?v=r8FyWWnsa-s&t=2s)
 
 
 ## HTML structure Vimeo:
