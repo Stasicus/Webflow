@@ -1,14 +1,10 @@
-# Use for videos from YouTube, Vimeo and other storage on Webflow 🚀
-
-Above in this folder you can find CustomCode solutions for Webflow on different topics and use them in your projects. Just swipe up and select the subfolder 📌
-
-=======
 # Lazy Load Video on Webflow 🚀  
-**Code for lazy video loading on Webflow. To load a video only after clicking on an element with the `video-play` class inside `video-wrap`.**  
+### Use for videos from YouTube, Vimeo and other storage on Webflow 🚀
+
+**Here you'll find a Webflow solution to increase your page loading speed if you have a lot of videos on it**  
 
 ## 📌 Sources
-Webflow clonable: [Link](https://webflow.com/made-in-webflow)  
-YouTube Tutorial: [Link](https://www.youtube.com/)
+YouTube Tutorial: [Link](https://www.youtube.com/watch?v=r8FyWWnsa-s&t=2s)
 
 
 ## HTML structure Vimeo:
@@ -42,7 +38,7 @@ The same, only needs to change class="youtubePlayer"for <iframe>
     </div>
     <div class='video-embed'>
         <iframe class="youtubePlayer" 
-        data-video-id="MybaTnzu9AA" 
+        data-video-id="r8FyWWnsa-s&t=2s" 
         width="100%" 
         height="100%" 
         frameborder="0"
@@ -195,7 +191,6 @@ document.querySelectorAll('.video-wrap').forEach(videoWrap => {
         }
     });
 });
-
 </script>
 ```
 
