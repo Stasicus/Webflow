@@ -38,7 +38,7 @@ The same, only needs to change class="youtubePlayer"for <iframe>
     </div>
     <div class='video-embed'>
         <iframe class="youtubePlayer" 
-        data-video-id="r8FyWWnsa-s&t=2s" 
+        data-video-id="RhsUHDJ0BFM" 
         width="100%" 
         height="100%" 
         frameborder="0"
