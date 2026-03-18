@@ -30,7 +30,7 @@ Each `.hero_slider-item` is a slide. Add `d-hero-split` attribute to any text el
 
     <div class="hero_slider-item">
       <div class="hero_slider-body">
-        <h1 d-hero-split class="text-size-160">Slide Title 2</h1>
+        <h2 d-hero-split class="text-size-160">Slide Title 2</h1>
         <h2 d-hero-split class="text-size-160">Slide subtitle 2</h2>
       </div>
       <img class="hero_slider-img" src="..." />
