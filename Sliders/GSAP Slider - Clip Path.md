@@ -74,13 +74,6 @@ Each `.hero_slider-item` is a slide. Add `d-hero-split` attribute to any text el
   object-fit: cover;
 }
 
-/* optional: text overlay positioning */
-.hero_slider-body {
-  position: absolute;
-  z-index: 2;
-  bottom: 3rem;
-  left: 3rem;
-}
 ```
 
 > **Key rule:** `.hero_slider-list` must have `height: 100%` — otherwise it collapses to 0 when JS makes slides `position: absolute`.
