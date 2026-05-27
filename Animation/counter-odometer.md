@@ -1,19 +1,13 @@
 # Animated Counter on Webflow (Odometer.js + ScrollTrigger)
-### Animated number counter triggered on scroll — works with any number, auto-formats thousands separators
+### Animated number counter triggered on scroll — works with any number, no separators
 
-**Scroll into view → numbers count up with a slot-machine digit animation. Separator commas are added automatically based on the number length.**
+**Scroll into view → numbers count up with a slot-machine digit animation.**
 
 ---
 
-## How it works
+## Why GSAP?
 
-Odometer.js renders each digit as a vertical "ribbon" that scrolls up/down to animate between values. The trick used here:
-
-- A `1` is added as a prefix and suffix to the number string → `"1" + number + "1"`
-- These outer digits are hidden by CSS (`display: none` on first/last child)
-- Only the middle digits are visible — this keeps the DOM stable regardless of the number
-
-The `buildOdometerFormat()` function auto-calculates the correct format string (e.g. `'ddd,dddd'`) based on how many digits the number has, so thousands separators appear in the right position automatically.
+GSAP is used only for **ScrollTrigger** — it watches the scroll position and fires the odometer animation only when the element enters the viewport. Without it, the counter would animate immediately on page load, even if the section is at the bottom of the page. Odometer.js handles the digit animation itself; GSAP just controls *when* it starts.
 
 ---
 
@@ -26,118 +20,163 @@ Add to `<head>` or before `</body>`:
 <script src="https://github.hubspot.com/odometer/odometer.js"></script>
 
 <!-- GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
 ```
 
 ---
 
 ## HTML structure
 
-Each counter is a single `div` with class `odometer` and a `data-end` attribute.  
-No inner HTML needed — Odometer renders everything automatically.
-
-```html
-<div class="odometer" data-end="483934"></div>
-<div class="odometer" data-end="118543"></div>
-<div class="odometer" data-end="30"></div>
-```
-
-### data attributes
+**Webflow:** Element Settings → Custom Attributes → `data-end` = your number.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | `data-end` | ✅ | The final number the counter animates to |
-| `data-sep` | optional | Thousands separator. Default: `,` — use `data-sep="."` for European style |
 
-**Webflow:** Element Settings → Custom Attributes → add `data-end` = your number.
+> ⚠️ `data-end` must be set — without it the script finds nothing and the element stays empty.
+
+In Webflow you only add the `div.odometer` with `data-end`. Everything inside `odometer-inside` is rendered by Odometer automatically on init.
+
+```html
+    <!-- Add only this div in Webflow with data-end attribute -->
+    <div data-end="70" class="odometer odometer-auto-theme">
+
+      <!-- Everything below is rendered by Odometer automatically -->
+      <div class="odometer-inside">
+
+        <!-- Padding digit (hidden by CSS) — keeps digit count stable during animation -->
+        <span class="odometer-digit">
+          <span class="odometer-digit-spacer">8</span>  <!-- sets slot height, invisible -->
+          <span class="odometer-digit-inner">
+            <span class="odometer-ribbon">
+              <span class="odometer-ribbon-inner">
+                <span class="odometer-value">1</span>   <!-- padding value, hidden -->
+              </span>
+            </span>
+          </span>
+        </span>
+
+        <!-- Separator mark — hidden by CSS if not needed -->
+        <span class="odometer-formatting-mark">,</span>
+
+        <!-- Visible digits (one span per digit) -->
+        <span class="odometer-digit">
+          <span class="odometer-digit-spacer">8</span>
+          <span class="odometer-digit-inner">
+            <span class="odometer-ribbon">
+              <span class="odometer-ribbon-inner">
+                <span class="odometer-value">7</span>
+              </span>
+            </span>
+          </span>
+        </span>
+        <!-- ...more odometer-digit spans... -->
+
+        <!-- Padding digit (hidden by CSS) -->
+        <span class="odometer-digit">...</span>
+
+      </div>
+    </div>
+</div>
+```
 
 ---
 
 ## CSS
 
-```html
-<style>
+Desktop styles. Add inside a `<style>` tag in Webflow custom code.
+
+```css
+/* ── Odometer container ── */
 .odometer {
+    position: relative;
+    left: -0.2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--gray--900);
+    font-size: 5.38rem;
+    line-height: 1.2;
+    font-weight: 500;
     --time: 2s;
-    --odometer-easing: ease;
-    vertical-align: middle
 }
 
+/* ── Digit slot layout ── */
 .odometer .odometer-inside {
-    gap: .5rem
-}
-
-@media (max-width:479px) {
-    .odometer .odometer-inside {
-        gap: .2rem
-    }
+    gap: .5rem;
 }
 
 .odometer .odometer-digit {
     display: inline-block;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
+/* Sets the height of each digit slot — invisible but takes space */
 .odometer .odometer-digit .odometer-digit-spacer {
     display: block;
     vertical-align: middle;
-    visibility: hidden
+    visibility: hidden;
+}
+
+/* ── Ribbon (the scrolling strip of digits) ── */
+.odometer-ribbon {
+    position: absolute;
+    inset: 0%;
+    display: block;
+    overflow: hidden;
+}
+
+.odometer-ribbon-inner {
+    -webkit-backface-visibility: hidden;
+}
+
+.odometer-digit-inner {
+    position: absolute;
+    inset: 0%;
+    display: block;
+    overflow: hidden;
+}
+
+.odometer-value {
+    display: block;
 }
 
 .odometer .odometer-digit .odometer-value.odometer-last-value {
     position: absolute;
     left: 0;
-    right: 0
+    right: 0;
 }
 
-.odometer-ribbon-inner {
-    -webkit-backface-visibility: hidden
-}
-
+/* ── Animation transitions ── */
 .odometer.odometer-animating-up .odometer-ribbon-inner {
-    -webkit-transition: -webkit-transform var(--time);
-    -moz-transition: -moz-transform var(--time);
-    -ms-transition: -ms-transform var(--time);
-    -o-transition: -o-transform var(--time);
-    transition: transform var(--time)
-}
-
-.odometer.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    transform: translateY(-100%)
-}
-
-.odometer.odometer-animating-down .odometer-ribbon-inner {
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    transform: translateY(-100%)
-}
-
-.odometer.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-    -webkit-transition: -webkit-transform var(--time);
-    -moz-transition: -moz-transform var(--time);
-    -ms-transition: -ms-transform var(--time);
-    -o-transition: -o-transform var(--time);
     transition: transform var(--time);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0)
+}
+.odometer.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+    transform: translateY(-100%);
+}
+.odometer.odometer-animating-down .odometer-ribbon-inner {
+    transform: translateY(-100%);
+}
+.odometer.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+    transition: transform var(--time);
+    transform: translateY(0);
 }
 
-/* Hide the 1-prefix and 1-suffix digits */
-.odometer .odometer-inside .odometer-digit:last-child,
-.odometer .odometer-inside .odometer-digit:nth-child(1) {
-    display: none
+/* ── Hide padding digits (first and last) ── */
+.odometer .odometer-inside .odometer-digit:first-child,
+.odometer .odometer-inside .odometer-digit:last-child {
+    display: none;
 }
-</style>
+
+/* ── Hide separator commas/dots ── */
+/* Odometer auto-inits with its default format that includes commas.        */
+/* Even if the JS format string has no separator, the auto-init runs first  */
+/* and bakes comma markup into the DOM before the custom script fires.      */
+/* Add this rule if you don't want any separators between digits:           */
+.odometer .odometer-formatting-mark {
+    display: none;
+}
 ```
 
 ---
@@ -145,19 +184,13 @@ No inner HTML needed — Odometer renders everything automatically.
 ## JavaScript
 
 ```html
-<script src="https://github.hubspot.com/odometer/odometer.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
 <script>
   // ========= ODOMETER / helpers
-  function buildOdometerFormat(n, sep) {
-    sep = sep || ',';
+  function buildOdometerFormat(n) {
     var parts = ['d'];
     var remaining = n;
     while (remaining > 0) {
       var group = Math.min(3, remaining);
-      if (parts.length > 1) parts.push(sep);
       parts.push(new Array(group + 1).join('d'));
       remaining -= group;
     }
@@ -166,12 +199,11 @@ No inner HTML needed — Odometer renders everything automatically.
     return parts.join('');
   }
 
-  function setupOdometer(el, endNum, sep) {
-    sep = sep || ',';
+  function setupOdometer(el, endNum) {
     var digits = String(endNum).length;
     var paddedStart = '1' + '0'.repeat(digits) + '1';
     var paddedEnd = '1' + String(endNum) + '1';
-    var format = buildOdometerFormat(digits, sep);
+    var format = buildOdometerFormat(digits);
     var odometer = new Odometer({el: el, value: paddedStart, format: format, duration: 9000});
     odometer.render(paddedStart);
     ScrollTrigger.create({
@@ -184,26 +216,23 @@ No inner HTML needed — Odometer renders everything automatically.
   // ========= ODOMETER / init
   document.querySelectorAll('.odometer').forEach(function(el) {
     var end = parseInt(el.getAttribute('data-end'));
-    var sep = el.getAttribute('data-sep') || ',';
-    setupOdometer(el, end, sep);
+    setupOdometer(el, end);
   });
 </script>
 ```
 
 ---
 
-## Format auto-calculation examples
+## How the padding trick works
 
-| Number | Digits | Format built | Result |
-|--------|--------|-------------|--------|
-| `30` | 2 | `'dddd'` | `30` |
-| `526` | 3 | `'ddddd'` | `526` |
-| `1,844` | 4 | `'dd,dddd'` | `1,844` |
-| `11,844` | 5 | `'ddd,dddd'` | `11,844` |
-| `500,000` | 6 | `'dddd,dddd'` | `500,000` |
-| `1,000,000` | 7 | `'dd,ddd,dddd'` | `1,000,000` |
+| Step | Value | Visible digits |
+|------|-------|---------------|
+| paddedStart (`data-end="70"`) | `1001` | `00` (1st and last hidden) |
+| paddedEnd | `1701` | `70` ✓ |
+| paddedStart (`data-end="14"`) | `1001` | `00` |
+| paddedEnd | `1141` | `14` ✓ |
 
-No manual format string needed — just change `data-end`.
+The digit count never changes during animation — no layout jump.
 
 ---
 
